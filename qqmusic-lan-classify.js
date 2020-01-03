@@ -2,7 +2,7 @@
 * Only useful for qqmusic web!!!
 * @Description  This script helps you to classify your song by song language in your selected song list to a js object.
 * @Return  Language as key, and title well be the value.result will be printed in console.
-* @Author  KingJohnson
+* @Author  KingJohnson-Z
 * 
 * operations before run this script:
 * 1. first open and login QQmusic in browser。Go to your song list page. 
