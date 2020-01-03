@@ -8,12 +8,11 @@
 * 1. first open and login QQmusic in browser。Go to your song list page. 
 * url for example:https://y.qq.com/portal/profile.html#sub=other&tab=create&
 * 2. open f12 and turn to 'network' tab before clicking any your song list. 
-* 3. clear all network load history and set filter to 'JS' in order to find our data easyily in next step.
-* 4. click your song list you want to classify and search this request in network load history:
-* fcg_musiclist_getinfo_cp.fcg?uin=xxxxxxx
+* 3. click your song list you want to classify and search this request in network load history by just using filter
+* fcg_musiclist_getinfo_cp.fcg?uin=
 * 5. you will find 'SongList' in jsonCallback in preview tab.
 * 6. right click 'SongList' and select 'store as gobal variable'.Then tmp variable 'temp1' well be created in console.
-* 7. copy this script and just run.It well takes you some time to run out result, please wait......
+* 7. copy this script and just run in soncole tab.It well takes you some time to run out result, please wait......
 * 
 */
 
@@ -23,7 +22,6 @@
     let length=data.length;
     let result={};
     let iframe = document.createElement("iframe");
-    iframe.id='my';
     iframe.onload=function(){
         setTimeout(function(){
             var doc=iframe.contentDocument;
@@ -40,8 +38,11 @@
     
     let setSrc=()=>{
         if(index>=length){
-            console.log(result);           
+            console.log('Finished!!!');
+            console.log(result);
+            document.body.removeChild(iframe); 
         }else{
+            console.log(`running ${index}/${length} ... `);
             iframe.src=`https://y.qq.com/n/yqq/song/${data[index++].mid}.html`;
         }
     }
